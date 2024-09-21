@@ -15,13 +15,17 @@
             "lookup": "properties.NAME",
             "from": {
               "data": {
-                "url": "Data/Meat_data_Real .csv"
+                "url": "Data/Meat_data_Real_1.csv",
+                "format": {"type": "csv"}
               },
-              "key": "LOCATION",
-              "fields": ["Value", "SUBJECT"]
+              "key": "Country",
+              "fields": ["Value"]
             }
           },
-          {"calculate": "datum.Value + 0.1", "as": "Consumption"}
+          {
+            "calculate": "isValid(datum['Value']) ? datum['Value'] : 0",
+            "as": "Consumption"
+          }
         ],
         "mark": {"type": "geoshape"},
         "encoding": {
@@ -31,14 +35,13 @@
             "title": "Meat Consumption (kg/capita)",
             "scale": {
               "type": "threshold",
-              "domain": [10, 15, 25],
+              "domain": [10, 30, 60, 80],
               "range": ["#f7d9c4", "#c08574", "#8b3c3b", "#4d191f"]
             }
           },
           "tooltip": [
             {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-            {"field": "Value", "type": "quantitative", "title": "Consumption (kg/capita)"},
-            {"field": "SUBJECT", "type": "nominal", "title": "Type of Meat"}
+            {"field": "Consumption", "type": "quantitative", "title": "Meat Consumption (kg/capita)"}
           ]
         }
       },
