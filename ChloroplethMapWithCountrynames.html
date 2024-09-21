@@ -7,6 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 </head>
 <body>
     <h1>Meat Consumption Across Countries</h1>
@@ -50,8 +52,13 @@
                     "title": "Meat Consumption (kg/capita)",
                     "scale": {
                       "type": "threshold",
-                      "domain": [5, 15, 25, 35, 50, 65, 80, 100],
-                      "range": ["#f7d9c4", "#e2a391", "#cc7c6b", "#b65a4d", "#9e3a38", "#86201f", "#6b1011", "#4d191f"]
+                      "domain": [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
+                      "range": [
+                        "#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c",
+                        "#fc7f13", "#fc6210", "#e45307", "#ca4200", "#b33100", 
+                        "#993000", "#7f2900", "#662100", "#4d1b00", "#351600",
+                        "#250e00", "#190900", "#0e0500", "#0a0400", "#040200"
+                      ]
                     }
                   },
                   "tooltip": [

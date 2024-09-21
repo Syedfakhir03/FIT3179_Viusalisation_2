@@ -35,9 +35,13 @@
             "title": "Meat Consumption (kg/capita)",
             "scale": {
               "type": "threshold",
-              "domain": [10, 30, 60, 80],
-              "range": ["#f7d9c4", "#c08574", "#8b3c3b", "#4d191f"]
+              "domain": [5, 15, 25, 35, 45, 55, 65, 75, 85, 95, 100],
+              "range": [
+                "#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", 
+                "#ef6548", "#d7301f", "#b30000", "#7f0000", "#4f0000"
+              ]
             }
+            
           },
           "tooltip": [
             {"field": "properties.NAME", "type": "nominal", "title": "Country"},

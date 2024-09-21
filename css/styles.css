@@ -1,0 +1,44 @@
+/* Style for the container holding the iframe (center alignment for the div) */
+
+
+/* Style for the iframe */
+iframe {
+    border: 3px solid black; /* Add a black border around the iframe */
+    width: 90%; /* Make the iframe responsive, adjust as needed */
+    height: 600px; /* Set height for the iframe */
+    border-radius: 10px; /* Optional: rounded corners for a modern look */
+}
+
+/* Style for the graph title */
+h1 {
+    font-family: 'Arial', sans-serif;
+    color: #eb1414; /* Dark text color for contrast */
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+/* Tooltip styling */
+.vega-tooltip {
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Map {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 50px 0; /* Add padding to give space around the iframe */
+}
+
+/* For smaller screens */
+@media only screen and (max-width: 768px) {
+    iframe {
+        width: 100%; /* Make the iframe full width on smaller screens */
+        height: 400px; /* Reduce the height on smaller screens */
+    }
+}
