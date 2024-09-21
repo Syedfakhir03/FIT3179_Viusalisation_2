@@ -1,74 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meat Consumption Across Countries</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 </head>
 <body>
-  <div id="vis"></div>
-  <script>
-    const spec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "title": "Meat Consumption Across Countries",
-      "width": 800,
-      "height": 400,
-      "data": {
-        "url": "https://raw.githubusercontent.com/your-github-repo/Meat_data_Real_1.csv",
-        "format": {"type": "csv"}
-      },
-      "projection": {"type": "equalEarth"},
-      "layer": [
-        {
-          "data": {
-            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-            "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-          },
-          "transform": [
-            {
-              "lookup": "properties.NAME",
-              "from": {
+    <h1>Meat Consumption Across Countries</h1>
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+        var yourVlSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Meat Consumption Across Countries",
+            "width": 800,
+            "height": 400,
+            "projection": {"type": "equalEarth"},
+            "layer": [
+              {
                 "data": {
-                  "url": "https://raw.githubusercontent.com/your-github-repo/Meat_data_Real_1.csv",
-                  "format": {"type": "csv"}
+                  "url": "js/WorldMapWithGraticules.json",
+                  "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
                 },
-                "key": "Country",
-                "fields": ["Value"]
+                "transform": [
+                  {
+                    "lookup": "properties.NAME",
+                    "from": {
+                      "data": {
+                        "url": "Data/Meat_data_Real_1.csv",
+                        "format": {"type": "csv"}
+                      },
+                      "key": "Country",
+                      "fields": ["Value"]
+                    }
+                  },
+                  {
+                    "calculate": "isValid(datum['Value']) ? datum['Value'] : 0",
+                    "as": "Consumption"
+                  }
+                ],
+                "mark": {"type": "geoshape"},
+                "encoding": {
+                  "color": {
+                    "field": "Consumption",
+                    "type": "quantitative",
+                    "title": "Meat Consumption (kg/capita)",
+                    "scale": {
+                      "type": "threshold",
+                      "domain": [5, 15, 25, 35, 50, 65, 80, 100],
+                      "range": ["#f7d9c4", "#e2a391", "#cc7c6b", "#b65a4d", "#9e3a38", "#86201f", "#6b1011", "#4d191f"]
+                    }
+                  },
+                  "tooltip": [
+                    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+                    {"field": "Consumption", "type": "quantitative", "title": "Meat Consumption (kg/capita)"}
+                  ]
+                }
+              },
+              {
+                "data": {
+                  "url": "js/WorldMapWithGraticules.json",
+                  "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+                },
+                "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
               }
-            },
-            {
-              "calculate": "isValid(datum['Value']) ? datum['Value'] : 0",
-              "as": "Consumption"
-            }
-          ],
-          "mark": {"type": "geoshape"},
-          "encoding": {
-            "color": {
-              "field": "Consumption",
-              "type": "quantitative",
-              "title": "Meat Consumption (kg/capita)",
-              "scale": {
-                "type": "threshold",
-                "domain": [10, 30, 60, 80],
-                "range": ["#f7d9c4", "#c08574", "#8b3c3b", "#4d191f"]
-              }
-            },
-            "tooltip": [
-              {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-              {"field": "Consumption", "type": "quantitative", "title": "Meat Consumption (kg/capita)"}
             ]
-          }
-        },
-        {
-          "data": {
-            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_graticules_30.topojson",
-            "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-          },
-          "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
-        }
-      ]
-    };
-    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-  </script>
+        };
+
+        vegaEmbed('#vis', yourVlSpec).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
 </body>
 </html>
