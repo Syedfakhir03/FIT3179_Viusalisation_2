@@ -2,9 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 350,
   "height": 350,
-  "description": "Interactive Meat Production Stacked Bar Chart with filter, emojis in tooltips, and formatted tooltips",
+  "description": "Interactive Meat Production Stacked Bar Chart",
   "data": {
-    "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-09_HW-/refs/heads/main/Data/Cleaned_Meat_Production_Data.csv"
+    "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-09_HW-/refs/heads/main/Data/Cleaned_Meat_Production_Data.csv",
+    "format": {"type": "csv"}
   },
   "transform": [
     {
@@ -54,7 +55,7 @@
       "field": "Meat Type",
       "type": "nominal",
       "scale": {
-        "range": ["#e74c3c", "#f39c12", "#2ecc71", "#3498db", "#9b59b6", "#abb8c3"]
+        "range": ["#e74c3c", "#f39c12", "#2ecc71", "#3498db", "#9b59b6", "#837f12"]
       },
       "legend": {"title": "Meat Type"}
     },
