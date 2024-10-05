@@ -8,11 +8,16 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-  <!-- Link to External CSS -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Meta tags -->
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" type="text/css" href ="css/styles.css"  media="all">
+
+  
 </head>
 
 <body>
@@ -23,7 +28,6 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h1 class="center-text">Visualisations of Meat Data</h1>
-        <p class="center-text">Explore various visualisations about meat production and consumption worldwide.</p>
       </div>
     </div>
 
@@ -51,11 +55,11 @@
     var specVis1 = "./Stackedbar.vg.json";
     var specVis2 = "./sybol_2_with.vg.json";
 
-    vegaEmbed('#vis1', specVis1, { "width": 700, "height": 600, "actions": false }).then(function (result) {
+    vegaEmbed('#vis1', specVis1, { "width": 800, "height": 450, "actions": false }).then(function (result) {
       // Access Vega view instance as result.view
     }).catch(console.error);
 
-    vegaEmbed('#vis2', specVis2, { "width": 900, "height": 500, "actions": false }).then(function (result) {
+    vegaEmbed('#vis2', specVis2, { "width": 800, "height": 450, "actions": false }).then(function (result) {
       // Access Vega view instance as result.view
     }).catch(console.error);
   </script>
