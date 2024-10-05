@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 350,
+  "height": 350,
+  "description": "Interactive Meat Production Stacked Bar Chart with filter, emojis in tooltips, and formatted tooltips",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-09_HW-/refs/heads/main/Data/Cleaned_Meat_Production_Data.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "Bovine Meat",
+        "Fish, Seafood",
+        "Meat, Other",
+        "Mutton & Goat Meat",
+        "Pigmeat",
+        "Poultry Meat"
+      ],
+      "as": ["Meat Type", "Production"]
+    },
+    {
+      "calculate": "datum['Meat Type'] == 'Bovine Meat' ? '🐄' : datum['Meat Type'] == 'Fish, Seafood' ? '🐟' : datum['Meat Type'] == 'Meat, Other' ? '🍖' : datum['Meat Type'] == 'Mutton & Goat Meat' ? '🐑' : datum['Meat Type'] == 'Pigmeat' ? '🐖' : '🐓'",
+      "as": "emoji"
+    }
+  ],
+  "selection": {
+    "MeatType": {
+      "type": "single",
+      "fields": ["Meat Type"],
+      "bind": {
+        "input": "select",
+        "options": [null, "Bovine Meat", "Fish, Seafood", "Meat, Other", "Mutton & Goat Meat", "Pigmeat", "Poultry Meat"],
+        "name": "Filter by Meat Type: "
+      }
+    }
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusTopLeft": 5,
+    "cornerRadiusTopRight": 5
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Production",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Meat Type",
+      "type": "nominal",
+      "scale": {
+        "range": ["#e74c3c", "#f39c12", "#2ecc71", "#3498db", "#9b59b6", "#abb8c3"]
+      },
+      "legend": {"title": "Meat Type"}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Meat Type", "type": "nominal", "title": "Meat Type"},
+      {
+        "field": "Production",
+        "type": "quantitative",
+        "title": "Production",
+        "format": ","
+      },
+      {"field": "emoji", "type": "nominal", "title": "Category Emoji"}
+    ],
+    "opacity": {
+      "condition": {"selection": "MeatType", "value": 1},
+      "value": 0.6
+    }
+  }
+}
