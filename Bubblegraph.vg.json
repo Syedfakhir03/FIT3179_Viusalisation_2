@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 500,
+    "title": "GDP per Capita vs Meat Production per Capita (kg/person)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/Data/Bubblegraph_try.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "mark": {
+      "type": "circle",
+      "opacity": 0.7,
+      "stroke": "black",
+      "strokeWidth": 0.6
+    },
+    "encoding": {
+      "x": {
+        "field": "GDP",
+        "type": "quantitative",
+        "title": "GDP per Capita",
+        "scale": {"type": "log", "domain": [675, 125000]},
+        "axis": {"tickCount": 20}
+      },
+      "y": {
+        "field": "MPPC",
+        "type": "quantitative",
+        "title": "Meat Production per Capita (kg/person)",
+        "scale": {"type": "log", "domain": [2, 180]},
+        "axis": {"tickCount": 15}
+      },
+      "color": {
+        "field": "Continent",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "range": [
+            "#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628"
+          ]
+        }
+      },
+      "size": {
+        "field": "GDP",
+        "type": "quantitative",
+        "scale": {
+          "type": "threshold",
+          "domain": [1000, 10000, 50000, 100000],
+          "range": [75, 150, 250, 400]
+        },
+        "legend": {"format": ".2s"}
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal"},
+        {"field": "GDP", "type": "quantitative", "format": ","},
+        {"field": "MPPC", "type": "quantitative", "format": ","}
+      ]
+    },
+    "transform": [
+      {"filter": "datum.GDP > 0"},
+      {"filter": "datum.MPPC > 0"}
+    ]
+  }
+  
