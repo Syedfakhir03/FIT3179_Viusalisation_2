@@ -1,0 +1,177 @@
+Country,MPPC,GDP,Continent
+Afghanistan,8.74,1516.2733,Asia
+Albania,51.99,14596.016,Europe
+Algeria,17.920002,11029.139,Africa
+Angola,19.979996,5911.8354,Africa
+Antigua and Barbuda,85.791725,20501.162,North America
+Argentina,115.47999,21599.797,South America
+Armenia,59.98998,14206.545,Europe
+Australia,110.14999,49609.23,Oceania
+Austria,76.389946,53817.305,Europe
+Azerbaijan,37.13999,14433.904,Europe
+Bahamas,111.89726,30463.084,North America
+Bahrain,82.840225,49754.047,Asia
+Bangladesh,4.3000007,5911.013,Asia
+Barbados,86.37877,13869.242,North America
+Belarus,88.919975,19872.693,Europe
+Belgium,66.150024,52174.906,Europe
+Belize,56.619007,8826.859,North America
+Benin,15.619999,3321.552,Africa
+Bhutan,13.559826,11595.684,Asia
+Bolivia,78.36997,8052.6,South America
+Bosnia and Herzegovina,46.829887,15893.156,Europe
+Botswana,30.139952,14906.897,Africa
+Brazil,98.84,14735.582,South America
+Bulgaria,61.800053,24386.18,Europe
+Burkina Faso,33.319984,2176.0933,Africa
+Burundi,3.5099986,714.0667,Africa
+Cambodia,12.639992,4354.5654,Asia
+Cameroon,14.609999,3689.359,Africa
+Canada,86.85,48356.332,North America
+Cape Verde,38.408955,6356.745,Africa
+Central African Republic,34.409904,838.19293,Africa
+Chad,47.12999,1425.4945,Africa
+Chile,97.78003,25412.752,South America
+China,62.75,17657.656,Asia
+Colombia,60.94,14661.213,South America
+Comoros,34.529915,3228.5269,Africa
+Congo,45.95997,3700.27,Africa
+Costa Rica,62.17001,21220.162,North America
+Cote d'Ivoire,12.61,5316.464,Africa
+Croatia,90.78002,32060.504,Europe
+Cyprus,75.76981,43417.27,Europe
+Czechia,82.40002,40744.457,Europe
+Democratic Republic of Congo,3.03,1073.6433,Africa
+Denmark,70.48993,58802.96,Europe
+Djibouti,14.829974,4905.192,Africa
+Dominica,81.58184,10899.414,North America
+Dominican Republic,53.529984,18626.078,North America
+East Timor,17.179947,5038.926,Asia
+Ecuador,50.91001,10668.758,South America
+Egypt,29.109999,12180.451,Africa
+El Salvador,43.850033,9190.174,North America
+Estonia,72.06978,38717.695,Europe
+Eswatini,27.109932,9086.701,Africa
+Ethiopia,7.1400003,2319.1611,Africa
+Fiji,44.40976,10379.567,Oceania
+Finland,74.04011,48614.82,Europe
+France,86.05999,44941.438,Europe
+Gabon,66.33985,13822.509,Africa
+Gambia,16.709986,2076.5664,Africa
+Georgia,37.76996,15486.659,Europe
+Germany,76.58998,53395.65,Europe
+Ghana,20.899996,5420.792,Africa
+Greece,76.79995,29630.93,Europe
+Grenada,78.61117,13688.298,North America
+Guatemala,42.089993,8927.302,North America
+Guinea,16.660002,2640.3442,Africa
+Guinea-Bissau,14.689928,1831.3832,Africa
+Guyana,72.41991,21925.223,South America
+Haiti,21.54999,2881.1765,North America
+Honduras,38.750015,5572.177,North America
+Hong Kong,146.85,60037.445,Asia
+Hungary,82.080055,33583.785,Europe
+Iceland,83.548195,53135.953,Europe
+India,5.69,6677.185,Asia
+Indonesia,18.55,11859.437,Asia
+Iran,31.58,15004.6875,Asia
+Iraq,15.65338,8786.582,Asia
+Ireland,80.19008,104671.875,Europe
+Israel,107.70003,42379.156,Asia
+Italy,74.31999,42562.555,Europe
+Jamaica,63.409977,9605.191,North America
+Japan,57.17,41258.71,Asia
+Jordan,35.949974,9380.045,Asia
+Kazakhstan,71.83001,26110.53,Asia
+Kenya,10.249999,4745.637,Africa
+Kiribati,52.394714,2007.987,Oceania
+Kuwait,81.32998,45579.688,Asia
+Kyrgyzstan,39.01999,4910.0864,Asia
+Laos,29.840021,7846.975,Asia
+Latvia,73.95976,31833.842,Europe
+Lebanon,36.320026,12986.913,Asia
+Lesotho,21.729866,2239.3052,Africa
+Liberia,20.249992,1423.2296,Africa
+Libya,50.01,20273.88,Africa
+Lithuania,83.54994,39432.402,Europe
+Luxembourg,85.78866,118510,Europe
+Macao,108.94904,66820.91,Asia
+Madagascar,5.3799996,1482.3761,Africa
+Malawi,27.419998,1491.1337,Africa
+Malaysia,65.3,26407.316,Asia
+Maldives,28.799503,18757.78,Asia
+Mali,7.8099966,2120.6233,Africa
+Malta,67.78987,46598.96,Europe
+Mauritania,32.389923,5142.2812,Africa
+Mauritius,54.1495,20915.217,Africa
+Mexico,75.42,19617.76,North America
+Micronesia,70.361916,3320.9114,Oceania
+Moldova,51.807358,13703.939,Europe
+Mongolia,115.549934,11668.431,Asia
+Montenegro,88.41057,20710.535,Europe
+Morocco,32.079994,8065.986,Africa
+Mozambique,10.379999,1231.8641,Africa
+Myanmar,19.979996,4113.8936,Asia
+Namibia,37.21,9208.583,Africa
+Nauru,125.639015,10989.622,Oceania
+Nepal,17.340002,3853.6802,Asia
+Netherlands,63.80001,57334.703,Europe
+New Zealand,81.38,44041.902,Oceania
+Nicaragua,31.529974,5692.035,North America
+Niger,8.12,1186.53,Africa
+Nigeria,6.9599996,4922.6323,Africa
+North Macedonia,41.03002,16708.598,Europe
+Norway,74.68999,65915.53,Europe
+Oman,47.94996,34294.766,Asia
+Pakistan,18.620003,5233.4595,Asia
+Panama,85.040115,30416.793,North America
+Papua New Guinea,58.480015,3637.9133,Oceania
+Paraguay,36.439987,13676.391,South America
+Peru,54.010006,12533.842,South America
+Philippines,32.929996,8095.5796,Asia
+Poland,89.27001,34944.04,Europe
+Portugal,94.62991,33636.44,Europe
+Qatar,83.02003,92895.34,Asia
+Romania,67.14001,30946.277,Europe
+Russia,78.36001,28057.031,Europe
+Rwanda,7.619999,2237.514,Africa
+Saint Kitts and Nevis,96.55741,26460.477,North America
+Saint Lucia,89.603516,13045.966,North America
+Saint Vincent and the Grenadines,109.45951,13839.464,North America
+Samoa,106.159805,5534.566,Oceania
+Sao Tome and Principe,28.288986,3502.4353,Africa
+Saudi Arabia,55.060005,46768.434,Asia
+Senegal,19.319994,3511.6375,Africa
+Serbia,77.619995,19860.31,Europe
+Seychelles,70.57939,27928.373,Africa
+Sierra Leone,11.679997,1614.8599,Africa
+Slovakia,63.459988,32512.695,Europe
+Slovenia,61.230053,40104.36,Europe
+Solomon Islands,17.429876,2397.3228,Oceania
+South Africa,71.56999,13337.79,Africa
+South Korea,81.48001,44299.91,Asia
+Spain,100.31999,38319.29,Europe
+Sri Lanka,11.990001,13250.63,Asia
+Sudan,19.919998,3701.069,Africa
+Suriname,60.7901,14811.24,South America
+Sweden,66.93003,54160.367,Europe
+Switzerland,68.00001,71044.87,Europe
+Tajikistan,32.369938,3910.4626,Asia
+Tanzania,12.089999,2584.3977,Africa
+Thailand,25.99,17087.21,Asia
+Togo,9.420001,2130.859,Africa
+Trinidad and Tobago,58.49958,23036.256,South America
+Tunisia,27.810001,10395.913,Africa
+Turkey,43.029995,31722.16,Asia
+Turkmenistan,57.35,14696.823,Asia
+Uganda,9.38,2246.414,Africa
+Ukraine,48.499996,12949.326,Europe
+United Arab Emirates,84.33002,70028.02,Asia
+United Kingdom,82.27,45567.57,Europe
+United States,126.83,63635.824,North America
+Uruguay,62.76991,23257.256,South America
+Uzbekistan,42.259995,7800.5015,Asia
+Vanuatu,43.429184,2800.494,Oceania
+Vietnam,52.590004,10628.22,Asia
+Zambia,18.329998,3287.4204,Africa
+Zimbabwe,55.969982,2115.1445,Africa
