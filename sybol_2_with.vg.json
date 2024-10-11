@@ -1,16 +1,43 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Meat Consumption Across Countries (2021)",
-  "width": 800,
-  "height": 400,
-  "projection": {"type": "equalEarth"},
+  "title": {
+    "text": "Meat Consumption Across Countries (2021)",
+    "color": "#ffffff",
+    "fontSize": 30,
+    "font": "Helvetica Neue",
+    "fontWeight": "bold"
+  },
+  "width": 750,
+  "height": 600,
+  "background": "gainsboro",
+  "projection": {
+    "type": "naturalEarth1"
+  },
   "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_ocean.geojson",
+        "format": {"type": "json"}
+      },
+      "mark": {"type": "geoshape", "fill": "skyblue"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_graticules_30.geojson",
+        "format": {"type": "json"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#888",
+        "strokeWidth": 0.5,
+        "fill": null
+      }
+    },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/js/WorldMapWithGraticules.json",
         "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },
-      
       "transform": [
         {
           "lookup": "properties.NAME",
@@ -28,11 +55,11 @@
           "as": "Consumption"
         },
         {
-          "calculate": "datum['Consumption'] > 140 ? 140 : datum['Consumption']",
+          "calculate": "datum['Consumption'] > 150 ? 150 : datum['Consumption']",
           "as": "Normalized_Consumption"
         }
       ],
-      "mark": {"type": "geoshape"},
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
       "encoding": {
         "color": {
           "field": "Normalized_Consumption",
@@ -40,25 +67,99 @@
           "title": "Meat Consumption (kg/capita)",
           "scale": {
             "type": "threshold",
-            "domain": [0, 5, 10, 20, 50, 100, 140],
+            "domain": [0, 30, 60, 90, 120],
             "range": [
-              "#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c", 
-              "#f03b20", "#bd0026"
-            ]
+              "#ffeda0", "#fed976", "#fd8d3c", "#f03b20", "#bd0026"
+            ],
+            "clamp": true
+          },
+          "legend": {
+            "title": "Meat Consumption (kg/capita)",
+            "titleColor": "black",
+            "labelColor": "black",
+            "clipHeight": 30,
+            "gradientLength": 300,
+            "format": ".1f",
+            "orient": "right",
+            "offset": 10,
+            "titleLimit": 300,
+            "titleFontSize": 12,
+            "labelFontSize": 10
           }
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Normalized_Consumption", "type": "quantitative", "title": "Meat Consumption (kg/capita)"}
+          {
+            "field": "Normalized_Consumption",
+            "type": "quantitative",
+            "title": "Meat Consumption (kg/capita)",
+            "format": ".4f"
+          }
         ]
       }
     },
     {
       "data": {
-        "url": "js/WorldMapWithGraticules.json",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+        "values": [
+          {
+            "Country": "USA",
+            "lat": 37.0902,
+            "long": -95.7129,
+            "label": "Highest meat\nconsumption\nin the world!",
+            "textX": -150,
+            "textY": 30
+          },
+          {
+            "Country": "Mongolia",
+            "lat": 46.8625,
+            "long": 103.8467,
+            "label": "Despite being small it's still\none of the top \nconsumers of meat!",
+            "textX": 150,
+            "textY": 30
+          }
+        ]
       },
-      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "color": "black",
+            "strokeWidth": 1
+          },
+          "encoding": {
+            "longitude": {"field": "long", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "longitude2": {"field": "textX", "type": "quantitative"},
+            "latitude2": {"field": "textY", "type": "quantitative"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "dx": 6,
+            "dy": 4,
+            "fontSize": 12,
+            "color": "black",
+            "lineBreak": "\n"
+          },
+          "encoding": {
+            "longitude": {"field": "textX", "type": "quantitative"},
+            "latitude": {"field": "textY", "type": "quantitative"},
+            "text": {"field": "label"}
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "config": {
+    "background": "#121111",
+    "title": {"color":"black"},
+    "legend": {
+      "titleColor": "#0b0b0b",
+      "labelColor": "#101010",
+      "orient": "right"
+    }
+  },
+  "view": {"stroke": null}
 }
