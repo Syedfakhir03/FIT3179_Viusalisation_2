@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 500,
+    "title": "GDP per Capita vs Meat Production per Capita (kg/person)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/Data/meat_supply_all_values_2021.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "mark": {
+      "type": "circle",
+      "opacity": 0.7,
+      "stroke": "black",
+      "strokeWidth": 0.6
+    },
+    "encoding": {
+      "x": {
+        "field": "GDP per capita, PPP (constant 2017 international $)",
+        "type": "quantitative",
+        "title": "GDP per Capita",
+        "scale": {"type": "log", "domain": [675, 125000]},
+        "axis": {"tickCount": 20}
+      },
+      "y": {
+        "field": "Meat, total",
+        "type": "quantitative",
+        "title": "Meat Consumption per Capita (kg/person)",
+        "scale": {"type": "log", "domain": [2, 180]},
+        "axis": {"tickCount": 15}
+      },
+      "color": {
+        "field": "Continent",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "range": [
+            "#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628"
+          ]
+        }
+      },
+      "size": {
+        "field": "GDP per capita, PPP (constant 2017 international $)",
+        "type": "quantitative",
+        "scale": {
+          "type": "threshold",
+          "domain": [1000, 10000, 50000, 100000],
+          "range": [75, 150, 250, 400]
+        },
+        "legend": {"format": ".2s"}
+      },
+      "tooltip": [
+        {"field": "Entity", "type": "nominal", "title": "Country"},
+        {"field": "GDP per capita, PPP (constant 2017 international $)", "type": "quantitative", "format": ","},
+        {"field": "Meat, total", "type": "quantitative", "format": ","}
+      ]
+    },
+    "transform": [
+      {"filter": "datum['GDP per capita, PPP (constant 2017 international $)'] > 0"},
+      {"filter": "datum['Meat, total'] > 0"}
+    ]
+  }
+  
