@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 350,
-  "height": 350,
-  "description": "Interactive Meat Production Stacked Bar Chart",
+  "width": 700,
+  "height": 450,
+  "description": "Interactive Meat Production Stacked Bar Chart with Legend",
   "data": {
     "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-09_HW-/refs/heads/main/Data/Cleaned_Meat_Production_Data.csv",
     "format": {"type": "csv"}
@@ -20,25 +20,28 @@
       "as": ["Meat Type", "Production"]
     },
     {
-      "calculate": "datum['Meat Type'] == 'Bovine Meat' ? '🐄' : datum['Meat Type'] == 'Fish, Seafood' ? '🐟' : datum['Meat Type'] == 'Meat, Other' ? '🍖' : datum['Meat Type'] == 'Mutton & Goat Meat' ? '🐑' : datum['Meat Type'] == 'Pigmeat' ? '🐖' : '🐓'",
-      "as": "emoji"
+      "filter": "datum['Meat Type'] == MeatType_selection || MeatType_selection == null"
+    },
+    {
+      "calculate": "datum['Meat Type'] == 'Bovine Meat' ? '#e74c3c' : datum['Meat Type'] == 'Fish, Seafood' ? '#3498db' : datum['Meat Type'] == 'Meat, Other' ? '#2ecc71' : datum['Meat Type'] == 'Mutton & Goat Meat' ? '#9b59b6' : datum['Meat Type'] == 'Pigmeat' ? '#f39c12' : '#837f12'",
+      "as": "dynamicColor"
     }
   ],
-  "selection": {
-    "MeatType": {
-      "type": "single",
-      "fields": ["Meat Type"],
+  "params": [
+    {
+      "name": "MeatType_selection",
       "bind": {
         "input": "select",
         "options": [null, "Bovine Meat", "Fish, Seafood", "Meat, Other", "Mutton & Goat Meat", "Pigmeat", "Poultry Meat"],
+        "labels": ["Show All", "Bovine Meat", "Fish, Seafood", "Meat, Other", "Mutton & Goat Meat", "Pigmeat", "Poultry Meat"],
         "name": "Filter by Meat Type: "
       }
     }
-  },
+  ],
   "mark": {
     "type": "bar",
-    "cornerRadiusTopLeft": 5,
-    "cornerRadiusTopRight": 5
+    "cornerRadiusTopLeft": 10,
+    "cornerRadiusTopRight": 10
   },
   "encoding": {
     "x": {
@@ -49,15 +52,30 @@
     "y": {
       "aggregate": "sum",
       "field": "Production",
-      "type": "quantitative"
+      "type": "quantitative",
+      "title": "Total Production"
     },
     "color": {
       "field": "Meat Type",
       "type": "nominal",
       "scale": {
-        "range": ["#e74c3c", "#f39c12", "#2ecc71", "#3498db", "#9b59b6", "#837f12"]
+        "domain": [
+          "Bovine Meat",
+          "Fish, Seafood",
+          "Meat, Other",
+          "Mutton & Goat Meat",
+          "Pigmeat",
+          "Poultry Meat"
+        ],
+        "range": ["#e74c3c", "#3498db", "#2ecc71", "#9b59b6", "#f39c12", "#837f12"]
       },
-      "legend": {"title": "Meat Type"}
+      "legend": {
+        "title": "Meat Type",
+        "labelFontSize": 16,
+        "titleFontSize": 18,
+        "titleFontWeight": "bold",
+        "orient": "right"
+      }
     },
     "tooltip": [
       {"field": "Year", "type": "ordinal", "title": "Year"},
@@ -67,12 +85,7 @@
         "type": "quantitative",
         "title": "Production",
         "format": ","
-      },
-      {"field": "emoji", "type": "nominal", "title": "Category Emoji"}
-    ],
-    "opacity": {
-      "condition": {"selection": "MeatType", "value": 1},
-      "value": 0.6
-    }
+      }
+    ]
   }
 }

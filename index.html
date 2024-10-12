@@ -2,121 +2,195 @@
 <html lang="en">
 
 <head>
-    <title>Meat Data Visualisations</title>
-    <!-- Import Vega & Vega-Lite -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <title>Global Meat Consumption and Production Insights</title>
 
-    <!-- Import pure.css -->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Import Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-    <!-- Link to External CSS -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 </head>
 
 <body>
 
-    <div class="page">
+  <div class="page">
 
-        <!-- Header Section -->
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-                <h1 class="center-text">Visualisations of Meat Data</h1>
+    <!-- Header Section -->
+    <div class="headercontainer">
+      <div class="headertext">
+        <h1>The Meat Index: Which Countries Are Eating the Most?</h1>
+        <p>Explore the global trends in meat consumption and production, uncovering how countries differ in their dietary habits and contributions to meat production. This analysis provides an understanding of the state of meat consumption across the continents and its relationship with economic factors.</p>
+      </div>
+    </div>
+
+    <hr>
+
+<!-- World Map Section -->
+    <section>
+        <h2>Global Meat Consumption Distribution (2021)</h2>
+        <p style="font-size: 18px; text-align: center; max-width: 900px; margin: 0 auto 20px;">
+            This world map visualizes <span style="font-weight: bold;">Meat consumption Per Capita</span> across different countries, 
+            highlighting significant variations between nations. 
+            <span style="font-weight: bold;">The United States</span> leads with the highest meat consumption 
+            at <span style="font-weight: bold;">126.83 kg per capita</span>, followed closely by 
+            <span style="font-weight: bold;">Mongolia</span> with <span style="font-weight: bold;">115.55 kg per capita</span>, 
+            despite its smaller population size. In contrast, the lowest meat consumption levels are observed in countries such as 
+            <span style="font-weight: bold;">Burundi</span> (<span style="font-weight: bold;">3.51 kg per capita</span>), 
+            <span style="font-weight: bold;">Bangladesh</span> (<span style="font-weight: bold;">4.3 kg per capita</span>), 
+            and <span style="font-weight: bold;">India</span> (<span style="font-weight: bold;">5.69 kg per capita</span>).
+        </p>
+        <div class="mapcontainer" id="map"></div>
+    </section>
+
+
+    <hr>
+
+    <section>
+        <h2>Global Meat Production Breakdown</h2>
+        <div class="content-container">
+            <div class="chart stackedbarcontainer" id="stackedbar"></div>
+            <div class="text-content">
+                <p style="font-size: 18px;">
+                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                        Poultry</span> and 
+                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                        Fish Meat</span> dominate the chart, with 
+                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                        pig meat</span> showing steady contributions throughout. 
+                    The chart includes a <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                        filter feature</span>, allowing users to explore 
+                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                        specific meat categories</span>, making it useful for 
+                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                        analysts</span> monitoring 
+                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                        production trends</span>.
+                </p>
             </div>
         </div>
-
-        <!-- First Visualization (World Map with description below) -->
-        <div class="pure-g">
-            <!-- Graph Column with Full Width -->
-            <div class="pure-u-1">
-                <div id="vis2" class="vis-container"></div>
-            </div>
-            <!-- Text Section Below Graph -->
-            <div class="pure-u-1">
-                <div class="text-container-below">
-                    <h3>About Meat Consumption</h3>
-                    <p>This visualization shows the global meat consumption by country for the year 2021. Countries with higher meat consumption are represented with darker shades of red, while lower consumption is lighter. The map highlights trends across different continents and how meat consumption varies around the world.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Visualization and Text Row 2 (Stacked Bar Chart) -->
-        <div class="pure-g">
-            <!-- Graph Column -->
-            <div class="pure-u-2-3">
-                <h2 class="center-text">Stacked Bar Chart of Meat Production</h2>
-                <div id="vis1" class="vis-container"></div>
-            </div>
-            <!-- Text Column -->
-            <div class="pure-u-1-3">
-                <div class="text-container">
-                    <h3>About Meat Production</h3>
-                    <p>This stacked bar chart provides an interactive look at the various types of meat production from 1961 onwards. It allows you to filter by meat types such as bovine, poultry, pigmeat, and more, providing insights into production trends over time.</p>
-                </div>
+    </section>
+    
+    <section>
+        <h2>Global Meat Production (1961-2021)</h2>
+        <div class="content-container">
+            <div class="chart stackedareacontainer" id="stackedarea"></div>
+            <div class="text-content">
+                <p style="font-size: 18px;">
+                    This area chart presents the historical growth of meat production across continents. 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">Asia</span> 
+                    emerges as the leading producer from the 1990s onward, producing the meat in 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">Tons</span>, 
+                    while <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">Europe</span> 
+                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">North America</span> 
+                    show steady production throughout the years. Users can filter by continent to explore 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">regional</span> 
+                    patterns, offering valuable insights into how production aligns with regional consumption trends.
+                </p>
             </div>
         </div>
-
-        <!-- Visualization and Text Row 3 (Stacked Area Chart) -->
-        <div class="pure-g">
-            <!-- Graph Column -->
-            <div class="pure-u-2-3">
-                <h2 class="center-text">Global Meat Production (1961 to 2021)</h2>
-                <div id="vis3" class="vis-container"></div>
-            </div>
-            <!-- Text Column -->
-            <div class="pure-u-1-3">
-                <div class="text-container">
-                    <h3>Global Meat Production</h3>
-                    <p>This area chart highlights the global production of meat over several decades, segmented by continents. It provides an insightful overview of how meat production has evolved across different regions since 1961.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Visualization and Text Row 4 (Bubble Chart) -->
-        <div class="pure-g">
-            <!-- Graph Column -->
-            <div class="pure-u-2-3">
-                <h2 class="center-text">GDP per Capita vs Meat Production per Capita (kg/person)</h2>
-                <div id="vis4" class="vis-container"></div>
-            </div>
-            <!-- Text Column -->
-            <div class="pure-u-1-3">
-                <div class="text-container">
-                    <h3>GDP vs Meat Production</h3>
-                    <p>The bubble chart compares the relationship between GDP per capita and meat production per capita. The size of the bubbles represents the GDP, while the position on the chart shows the correlation between wealth and meat production.</p>
-                </div>
+    </section>
+    
+    <hr>
+    
+    <section>
+        <h2>GDP per Capita vs Meat Production per Capita (kg/person)</h2>
+        <div class="content-container">
+            <div class="chart bubblecontainer" id="bubble"></div>
+            <div class="text-content">
+                <p style="font-size: 18px;">
+                    This chart highlights that countries with higher 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">GDP per capita</span> 
+                    tend to produce more meat per capita. 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">North America</span> 
+                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Europe</span> 
+                    lead in both GDP and meat production, while 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Africa</span> 
+                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Asia</span> 
+                    show lower levels. Interactive features, including a 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">year slider</span> 
+                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">continent filter</span>, 
+                    help users explore trends over time.
+                </p>
             </div>
         </div>
+    
+        <!-- Controls container to align the button at the end -->
+        <div class="controls-container">
+            <button id="pauseButton">Pause</button> <!-- Pause button -->
+        </div>
+    </section>
+    
+    
+    <hr>
 
-    </div> <!-- End of page -->
+    <!-- Footer Section -->
+    <div class="footer">
+      <p>Author: Syed Fakhir </p>
+      <p>Dataset Sources: Various online data sources for meat consumption and production analysis</p>
+    </div>
 
+  </div>
 
-    <!-- Embed Visualizations -->
-    <script type="text/javascript">
-        var specVis1 = "./Stackedbar.vg.json";
-        var specVis2 = "./sybol_2_with.vg.json";
-        var specVis3 = "./StackedArea.vg.json";
-        var specVis4 = "./Bubblegraph.vg.json";
+  <!-- Embedding JSON Data -->
+  <script type="text/javascript">
+    let year = 2002;
+    let timer;
+    let isPaused = false;
 
-        vegaEmbed('#vis1', specVis1, { "width": 800, "height": 450, "actions": false }).then(function (result) {
-            // Access Vega view instance as result.view
-        }).catch(console.error);
+    function updateYear(view, newYear) {
+      view.signal('Year_selection', newYear).run();
+    }
 
-        vegaEmbed('#vis2', specVis2, { "width": 1000, "height": 500, "actions": false }).then(function (result) {
-            // Access Vega view instance as result.view
-        }).catch(console.error);
+    function toggleAnimation(view) {
+      const button = document.getElementById("pauseButton");
 
-        vegaEmbed('#vis3', specVis3, { "width": 800, "height": 450, "actions": false }).then(function (result) {
-            // Access Vega view instance as result.view
-        }).catch(console.error);
+      if (isPaused) {
+        timer = setInterval(() => {
+          if (year < 2021) year += 1;
+          else year = 2002;
+          updateYear(view, year);
+        }, 1000);
+        button.textContent = "Pause";
+      } else {
+        clearInterval(timer);
+        button.textContent = "Resume";
+      }
 
-        vegaEmbed('#vis4', specVis4, { "width": 800, "height": 450, "actions": false }).then(function (result) {
-            // Access Vega view instance as result.view
-        }).catch(console.error);
-    </script>
+      isPaused = !isPaused;
+    }
+
+    const visualizations = [
+      { id: '#map', data: 'sybol_2_with.vg.json' },
+      { id: '#stackedbar', data: 'Stackedbar.vg.json' },
+      { id: '#stackedarea', data: 'StackedArea.vg.json' },
+      { id: '#bubble', data: 'anotherone_bubble.vg.json' }
+    ];
+
+    visualizations.forEach(vis => {
+      vegaEmbed(vis.id, vis.data, { actions: false }).then(result => {
+        const view = result.view;
+
+        if (vis.id === "#bubble") {
+          timer = setInterval(() => {
+            if (year < 2021) year += 1;
+            else year = 2002;
+            updateYear(view, year);
+          }, 1000);
+
+          document.getElementById("pauseButton").addEventListener("click", () => {
+            toggleAnimation(view);
+          });
+        }
+      }).catch(console.error);
+    });
+  </script>
 
 </body>
 

@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
-    "height": 500,
-    "title": "GDP per Capita vs Meat Production per Capita (kg/person)",
+    "width": 700,
+    "height": 450,
     "data": {
       "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/Data/Onemore_bubble.csv",
       "format": {
@@ -11,7 +10,7 @@
     },
     "mark": {
       "type": "circle",
-      "opacity": 0.7,
+      "opacity": 0.6,
       "stroke": "black",
       "strokeWidth": 0.6
     },
@@ -19,14 +18,14 @@
       "x": {
         "field": "GDP",
         "type": "quantitative",
-        "title": "GDP per Capita",
+        "title": "GDP per Capita(log)",
         "scale": {"type": "log", "domain": [675, 125000]},
         "axis": {"tickCount": 20}
       },
       "y": {
         "field": "Meat",
         "type": "quantitative",
-        "title": "Meat Production per Capita (kg/person)",
+        "title": "Meat per Capita(log)",
         "scale": {"type": "log", "domain": [2, 180]},
         "axis": {"tickCount": 15}
       },
@@ -45,6 +44,12 @@
           "range": [
             "#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628"
           ]
+        },
+        "legend": {
+          "title": "Continent",
+          "titleFontSize": 18,
+          "titleFontWeight": "bold",
+          "labelFontSize": 15
         }
       },
       "size": {
@@ -104,7 +109,9 @@
       }
     ],
     "transform": [
-      {"filter": "datum.Entity != 'Africa' && datum.Entity != 'Asia' && datum.Entity != 'Europe' && datum.Entity != 'North America' && datum.Entity != 'Oceania' && datum.Entity != 'South America'"},
+      {
+        "filter": "datum.Entity != 'Africa' && datum.Entity != 'Asia' && datum.Entity != 'Europe' && datum.Entity != 'North America' && datum.Entity != 'Oceania' && datum.Entity != 'South America'"
+      },
       {"filter": "datum.GDP > GDP_filter"},
       {"filter": "datum.Meat > 0"},
       {"filter": "datum.Year == Year_selection"},
