@@ -4,7 +4,7 @@
     "height": 500,
     "title": "GDP per Capita vs Meat Production per Capita (kg/person)",
     "data": {
-      "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/Data/meat_supply_all_values_2021.csv",
+      "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/Data/Bubblegraph_try.csv",
       "format": {
         "type": "csv"
       }
@@ -17,16 +17,16 @@
     },
     "encoding": {
       "x": {
-        "field": "GDP per capita, PPP (constant 2017 international $)",
+        "field": "GDP",
         "type": "quantitative",
         "title": "GDP per Capita",
         "scale": {"type": "log", "domain": [675, 125000]},
         "axis": {"tickCount": 20}
       },
       "y": {
-        "field": "Meat, total",
+        "field": "MPPC",
         "type": "quantitative",
-        "title": "Meat Consumption per Capita (kg/person)",
+        "title": "Meat Production per Capita (kg/person)",
         "scale": {"type": "log", "domain": [2, 180]},
         "axis": {"tickCount": 15}
       },
@@ -48,7 +48,7 @@
         }
       },
       "size": {
-        "field": "GDP per capita, PPP (constant 2017 international $)",
+        "field": "GDP",
         "type": "quantitative",
         "scale": {
           "type": "threshold",
@@ -58,14 +58,28 @@
         "legend": {"format": ".2s"}
       },
       "tooltip": [
-        {"field": "Entity", "type": "nominal", "title": "Country"},
-        {"field": "GDP per capita, PPP (constant 2017 international $)", "type": "quantitative", "format": ","},
-        {"field": "Meat, total", "type": "quantitative", "format": ","}
+        {"field": "Country", "type": "nominal"},
+        {"field": "GDP", "type": "quantitative", "format": ","},
+        {"field": "MPPC", "type": "quantitative", "format": ","}
       ]
     },
+    "params": [
+      {
+        "name": "Year_selection",
+        "value": 2002,
+        "bind": {
+          "input": "range",
+          "min": 2002,
+          "max": 2021,
+          "step": 1,
+          "name": "Year: "
+        }
+      }
+    ],
     "transform": [
-      {"filter": "datum['GDP per capita, PPP (constant 2017 international $)'] > 0"},
-      {"filter": "datum['Meat, total'] > 0"}
+      {"filter": "datum.GDP > 0"},
+      {"filter": "datum.MPPC > 0"},
+      {"filter": "datum.Year == Year_selection"}
     ]
   }
   
