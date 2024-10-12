@@ -67,7 +67,7 @@
           "Pigmeat",
           "Poultry Meat"
         ],
-        "range": ["#e74c3c", "#3498db", "#2ecc71", "#9b59b6", "#f39c12", "#837f12"]
+        "range": ["#E15759", "#4E79A7", "#76B7B2", "#F28E2B", "#59A14F", "#EDC948"]
       },
       "legend": {
         "title": "Meat Type",

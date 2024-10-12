@@ -30,105 +30,120 @@
       </div>
     </div>
 
-    <hr>
+    <!-- Custom Divider -->
+    <div class="custom-divider"></div>
 
-<!-- World Map Section -->
+    <!-- World Map Section -->
     <section>
         <h2>Global Meat Consumption Distribution (2021)</h2>
-        <p style="font-size: 18px; text-align: center; max-width: 900px; margin: 0 auto 20px;">
-            This world map visualizes <span style="font-weight: bold;">Meat consumption Per Capita</span> across different countries, 
-            highlighting significant variations between nations. 
-            <span style="font-weight: bold;">The United States</span> leads with the highest meat consumption 
-            at <span style="font-weight: bold;">126.83 kg per capita</span>, followed closely by 
-            <span style="font-weight: bold;">Mongolia</span> with <span style="font-weight: bold;">115.55 kg per capita</span>, 
-            despite its smaller population size. In contrast, the lowest meat consumption levels are observed in countries such as 
-            <span style="font-weight: bold;">Burundi</span> (<span style="font-weight: bold;">3.51 kg per capita</span>), 
-            <span style="font-weight: bold;">Bangladesh</span> (<span style="font-weight: bold;">4.3 kg per capita</span>), 
-            and <span style="font-weight: bold;">India</span> (<span style="font-weight: bold;">5.69 kg per capita</span>).
-        </p>
-        <div class="mapcontainer" id="map"></div>
-    </section>
-
-
-    <hr>
-
-    <section>
-        <h2>Global Meat Production Breakdown</h2>
-        <div class="content-container">
-            <div class="chart stackedbarcontainer" id="stackedbar"></div>
+        <div class="content-container-horizontal">
             <div class="text-content">
                 <p style="font-size: 18px;">
-                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
-                        Poultry</span> and 
-                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
-                        Fish Meat</span> dominate the chart, with 
-                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
-                        pig meat</span> showing steady contributions throughout. 
-                    The chart includes a <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
-                        filter feature</span>, allowing users to explore 
-                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
-                        specific meat categories</span>, making it useful for 
-                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
-                        analysts</span> monitoring 
-                    <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
-                        production trends</span>.
+                    This world map visualizes <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Meat consumption Per Capita</span> 
+                    across different countries, highlighting significant variations between nations. 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">The United States</span> leads with the highest meat 
+                    consumption at <span style="font-family: 'Arial', sans-serif; font-weight: bold;">126.83 kg per capita</span>, followed closely by 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Mongolia</span> with <span style="font-family: 'Arial', sans-serif; font-weight: bold;">115.55 kg per capita</span>, despite its smaller population size. 
+                    In contrast, the lowest meat consumption levels are observed in countries such as 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Burundi</span> 
+                    (<span style="font-family: 'Arial', sans-serif; font-weight: bold;">3.51 kg per capita</span>), 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Bangladesh</span> 
+                    (<span style="font-family: 'Arial', sans-serif; font-weight: bold;">4.3 kg per capita</span>), and 
+                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">India</span> 
+                    (<span style="font-family: 'Arial', sans-serif; font-weight: bold;">5.69 kg per capita</span>).
                 </p>
             </div>
+            <div class="chart mapcontainer" id="map"></div>
         </div>
     </section>
-    
-    <section>
-        <h2>Global Meat Production (1961-2021)</h2>
-        <div class="content-container">
-            <div class="chart stackedareacontainer" id="stackedarea"></div>
-            <div class="text-content">
-                <p style="font-size: 18px;">
-                    This area chart presents the historical growth of meat production across continents. 
-                    <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">Asia</span> 
-                    emerges as the leading producer from the 1990s onward, producing the meat in 
-                    <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">Tons</span>, 
-                    while <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">Europe</span> 
-                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">North America</span> 
-                    show steady production throughout the years. Users can filter by continent to explore 
-                    <span style="font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">regional</span> 
-                    patterns, offering valuable insights into how production aligns with regional consumption trends.
-                </p>
-            </div>
+
+<!-- Custom Divider -->
+<div class="custom-divider"></div>
+
+<section>
+    <h2>Global Meat Production Breakdown</h2>
+    <div class="content-container">
+        <div class="chart stackedbarcontainer" id="stackedbar"></div>
+        <div class="text-content">
+            <p style="font-size: 18px;">
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    Poultry</span> and 
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    Fish Meat</span> dominate the chart, with 
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    pig meat</span> showing steady contributions throughout. 
+                The chart includes a <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    filter feature</span>, allowing users to explore 
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    specific meat categories</span>, making it useful for 
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    analysts</span> monitoring 
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    production trends</span>.
+            </p>
         </div>
-    </section>
-    
-    <hr>
-    
-    <section>
-        <h2>GDP per Capita vs Meat Production per Capita (kg/person)</h2>
-        <div class="content-container">
-            <div class="chart bubblecontainer" id="bubble"></div>
-            <div class="text-content">
-                <p style="font-size: 18px;">
-                    This chart highlights that countries with higher 
-                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">GDP per capita</span> 
-                    tend to produce more meat per capita. 
-                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">North America</span> 
-                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Europe</span> 
-                    lead in both GDP and meat production, while 
-                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Africa</span> 
-                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Asia</span> 
-                    show lower levels. Interactive features, including a 
-                    <span style="font-family: 'Arial', sans-serif; font-weight: bold;">year slider</span> 
-                    and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">continent filter</span>, 
-                    help users explore trends over time.
-                </p>
-            </div>
+    </div>
+</section>
+
+<!-- Custom Divider -->
+<div class="custom-divider"></div>
+
+<section>
+    <h2>Global Meat Production (1961-2021)</h2>
+    <div class="content-container">
+        <div class="chart stackedareacontainer" id="stackedarea"></div>
+        <div class="text-content">
+            <p style="font-size: 18px;">
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    Asia</span> emerges as the leading producer from the 1990s onward, producing 
+                the meat in <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    Tons</span>, while 
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    Europe</span> and 
+                <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    North America</span> show steady production throughout the years. Users can 
+                filter by continent to explore <span style="font-family: 'Arial', sans-serif; color: #444; font-weight: bold; font-size: 18px;">
+                    regional</span> patterns, offering valuable insights 
+                into how production aligns with regional consumption trends.
+            </p>
         </div>
-    
-        <!-- Controls container to align the button at the end -->
-        <div class="controls-container">
-            <button id="pauseButton">Pause</button> <!-- Pause button -->
+    </div>
+</section>
+
+<!-- Custom Divider -->
+<div class="custom-divider"></div>
+
+<section>
+    <h2>GDP per Capita vs Meat Production per Capita (kg/person)</h2>
+    <div class="content-container">
+        <div class="chart bubblecontainer" id="bubble"></div>
+        <div class="text-content">
+            <p style="font-size: 18px;">
+                This chart highlights that countries with higher 
+                <span style="font-family: 'Arial', sans-serif; font-weight: bold;">GDP per capita</span> 
+                tend to produce more meat per capita. 
+                <span style="font-family: 'Arial', sans-serif; font-weight: bold;">North America</span> 
+                and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Europe</span> 
+                lead in both GDP and meat production, while 
+                <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Africa</span> 
+                and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">Asia</span> 
+                show lower levels. Interactive features, including a 
+                <span style="font-family: 'Arial', sans-serif; font-weight: bold;">year slider</span> 
+                and <span style="font-family: 'Arial', sans-serif; font-weight: bold;">continent filter</span>, 
+                help users explore trends over time.
+            </p>
         </div>
-    </section>
-    
-    
-    <hr>
+    </div>
+
+    <!-- Controls container to align the button at the end -->
+    <div class="controls-container">
+        <button id="pauseButton">Pause</button> <!-- Pause button -->
+    </div>
+</section>
+
+<!-- Custom Divider -->
+<div class="custom-divider"></div>
+
 
     <!-- Footer Section -->
     <div class="footer">
