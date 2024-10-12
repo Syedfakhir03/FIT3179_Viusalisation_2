@@ -4,7 +4,7 @@
     "height": 500,
     "title": "GDP per Capita vs Meat Production per Capita (kg/person)",
     "data": {
-      "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/Data/Bubblegraph_try.csv",
+      "url": "https://raw.githubusercontent.com/Syedfakhir03/Week-10_HW-/refs/heads/main/Data/Onemore_bubble.csv",
       "format": {
         "type": "csv"
       }
@@ -24,7 +24,7 @@
         "axis": {"tickCount": 20}
       },
       "y": {
-        "field": "MPPC",
+        "field": "Meat",
         "type": "quantitative",
         "title": "Meat Production per Capita (kg/person)",
         "scale": {"type": "log", "domain": [2, 180]},
@@ -51,16 +51,15 @@
         "field": "GDP",
         "type": "quantitative",
         "scale": {
-          "type": "threshold",
-          "domain": [1000, 10000, 50000, 100000],
-          "range": [75, 150, 250, 400]
+          "domain": [1000, 100000],
+          "range": [50, 750]
         },
         "legend": {"format": ".2s"}
       },
       "tooltip": [
-        {"field": "Country", "type": "nominal"},
+        {"field": "Entity", "type": "nominal", "title": "Country"},
         {"field": "GDP", "type": "quantitative", "format": ","},
-        {"field": "MPPC", "type": "quantitative", "format": ","}
+        {"field": "Meat", "type": "quantitative", "format": ","}
       ]
     },
     "params": [
@@ -74,12 +73,44 @@
           "step": 1,
           "name": "Year: "
         }
+      },
+      {
+        "name": "GDP_filter",
+        "value": 1000,
+        "bind": {
+          "input": "range",
+          "min": 1000,
+          "max": 125000,
+          "step": 1000,
+          "name": "Min GDP: "
+        }
+      },
+      {
+        "name": "Continent_selection",
+        "value": "All",
+        "bind": {
+          "input": "select",
+          "options": [
+            "All",
+            "Africa",
+            "Asia",
+            "Europe",
+            "North America",
+            "Oceania",
+            "South America"
+          ],
+          "name": "Select Continent: "
+        }
       }
     ],
     "transform": [
-      {"filter": "datum.GDP > 0"},
-      {"filter": "datum.MPPC > 0"},
-      {"filter": "datum.Year == Year_selection"}
+      {"filter": "datum.Entity != 'Africa' && datum.Entity != 'Asia' && datum.Entity != 'Europe' && datum.Entity != 'North America' && datum.Entity != 'Oceania' && datum.Entity != 'South America'"},
+      {"filter": "datum.GDP > GDP_filter"},
+      {"filter": "datum.Meat > 0"},
+      {"filter": "datum.Year == Year_selection"},
+      {
+        "filter": "Continent_selection == 'All' || datum.Continent == Continent_selection"
+      }
     ]
   }
   
