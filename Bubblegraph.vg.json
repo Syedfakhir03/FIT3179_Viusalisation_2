@@ -43,10 +43,10 @@
             "Oceania"
           ],
           "range": [
-            "#D81B60",  // Vivid Pink for North America
-            "#1E88E5",  // Bright Blue for South America
-            "#FFC107",  // Bright Yellow for Europe
-            "#004D40",  // Teal Green for Africa
+            "#D81B60",  
+            "#1E88E5",  
+            "#FFC107",  
+            "#004D40",  
             "#FB8C00", 
             "#8E24AA"   
           ]
